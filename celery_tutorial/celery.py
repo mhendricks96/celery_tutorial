@@ -18,15 +18,3 @@ app.config_from_object('django.conf:settings', namespace='CELERY')
 # Load task modules from all registered Django app configs.
 app.autodiscover_tasks()
 
-
-################################# 
-# Below here would go into your app folder in a file called tasks.python
-# i'm doing it in here cuz i dont feel like making a whole app for a 5 minute demo
-
-@app.task(bind=True)
-def debug_task(self):
-    print('Request: {0!r}'.format(self.request))
-
-# @app.task
-# def add(x, y):
-#     return x + y
